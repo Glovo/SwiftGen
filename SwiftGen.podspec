@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'SwiftGen'
-  s.version      = '6.1.0'
+  s.version      = '6.2.0'
   s.summary      = 'A collection of Swift tools to generate Swift code for your assets, storyboards, strings, …'
 
   s.description  = <<-DESC
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/aligatr'
 
   s.source = {
-    http: "https://github.com/SwiftGen/SwiftGen/releases/download/#{s.version}/swiftgen-#{s.version}.zip"
+    http: "https://github.com/Glovo/SwiftGen/releases/download/#{s.version}/swiftgen-#{s.version}.zip"
   }
   s.preserve_paths = '*'
   s.exclude_files = '**/file.zip'
