@@ -9,10 +9,10 @@ import PathKit
 
 extension AssetsCatalog {
   enum Entry {
-    case color(name: String, value: String)
-    case data(name: String, value: String)
-    case group(name: String, isNamespaced: Bool, items: [Entry])
-    case image(name: String, value: String)
+    case color(name: String, value: String, metadata: [String: Any])
+    case data(name: String, value: String, metadata: [String: Any])
+    case group(name: String, isNamespaced: Bool, items: [Entry], metadata: [String: Any])
+    case image(name: String, value: String, metadata: [String: Any])
   }
 }
 
@@ -61,17 +61,18 @@ extension AssetsCatalog.Entry {
   init?(path: Path, withPrefix prefix: String) {
     guard path.isDirectory else { return nil }
     let type = path.extension ?? ""
+    let metadata = AssetsCatalog.Entry.metadata(path: path)
 
     switch Constants.Item(rawValue: type) {
     case .colorSet?:
       let name = path.lastComponentWithoutExtension
-      self = .color(name: name, value: "\(prefix)\(name)")
+      self = .color(name: name, value: "\(prefix)\(name)", metadata: metadata)
     case .dataSet?:
       let name = path.lastComponentWithoutExtension
-      self = .data(name: name, value: "\(prefix)\(name)")
+      self = .data(name: name, value: "\(prefix)\(name)", metadata: metadata)
     case .imageSet?:
       let name = path.lastComponentWithoutExtension
-      self = .image(name: name, value: "\(prefix)\(name)")
+      self = .image(name: name, value: "\(prefix)\(name)", metadata: metadata)
     case nil:
       guard type.isEmpty else { return nil }
       let filename = path.lastComponent
@@ -81,7 +82,8 @@ extension AssetsCatalog.Entry {
       self = .group(
         name: filename,
         isNamespaced: isNamespaced,
-        items: AssetsCatalog.Catalog.process(folder: path, withPrefix: subPrefix)
+        items: AssetsCatalog.Catalog.process(folder: path, withPrefix: subPrefix), 
+        metadata: metadata)
       )
     }
   }
