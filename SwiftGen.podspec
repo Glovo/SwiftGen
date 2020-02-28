@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
                    * … and more
                    DESC
 
-  s.homepage     = 'https://github.com/SwiftGen/SwiftGen'
+  s.homepage     = 'https://github.com/Glovo/SwiftGen'
   s.license      = 'MIT'
   s.author       = {
     'Olivier Halligon' => 'olivier@halligon.net'

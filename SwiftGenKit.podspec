@@ -1,17 +1,17 @@
 Pod::Spec.new do |s|
   s.name         = 'SwiftGenKit'
-  s.version      = '6.1.0'
+  s.version      = '6.2.0'
   s.summary      = 'The SwiftGen framework responsible for parsing assets and turn them ' \
                    'in a dictionary representation suitable for Stencil templates'
 
   s.description  = <<-DESC
                    This pod contains asset parsers for
-                   [SwiftGen](https://github.com/SwiftGen/SwiftGen), as well as
+                   [SwiftGen](https://github.com/Glovo/SwiftGen), as well as
                    methods for converting the data into contexts for
                    [Stencil](https://github.com/kylef/Stencil).
                    DESC
 
-  s.homepage     = 'https://github.com/SwiftGen/SwiftGenKit'
+  s.homepage     = 'https://github.com/Glovo/SwiftGenKit'
   s.license      = 'MIT'
   s.author       = {
     'Olivier Halligon' => 'olivier@halligon.net'
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.cocoapods_version = '>= 1.4.0'
 
   s.source       = {
-    git: 'https://github.com/SwiftGen/SwiftGenKit.git',
+    git: 'https://github.com/Glovo/SwiftGenKit.git',
     tag: s.version.to_s
   }
   s.source_files = 'Sources/**/*.swift'
